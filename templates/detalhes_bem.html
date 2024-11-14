@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Bem - Controle Patrimonial APAE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Menu de Acessibilidade -->
+    <div id="accessibilityOptions" class="accessibility-options hidden">
+        <button id="toggleContrastButton" class="btn">Alto Contraste</button>
+        <button id="increaseTextSizeButton" class="btn">A+</button>
+        <button id="resetTextSizeButton" class="btn">A</button>
+        <button id="decreaseTextSizeButton" class="btn">A-</button>
+    </div>
+
+    <!-- Container do VLibras -->
+    <div class="vlibras-container">
+        <div vw class="enabled">
+            <div vw-access-button class="active"></div>
+            <div vw-plugin-wrapper>
+                <div class="vw-plugin-top-wrapper"></div>
+            </div>
+        </div>
+    </div>
+
+        <header>
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo da APAE" class="logo"> <!-- Adicione seu logo aqui -->
+            <h1>Controle Patrimonial APAE</h1>
+            <p>Um aplicativo para gerenciar o patrimônio da APAE</p>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="/home">Página Principal</a></li>    
+                <li><a href="/relatorios" >Relatórios de Bens</a></li>
+                <li><a href="/bens">Lista Geral de Bens</a></li>
+                <li><a href="/logout">Sair</a></li>
+            </ul>
+        </nav>
+
+    <div class="container">
+        <h2>Detalhes do Bem</h2>
+        
+        <div class="details-container">
+            <p><strong>Nome:</strong> {{ bem.nome }}</p>
+            <p><strong>Descrição:</strong> {{ bem.descricao }}</p>
+            <p><strong>Data de Aquisição:</strong> {{ bem.data_aquisicao.strftime('%d/%m/%Y') }}</p>
+            <p><strong>Valor:</strong> R$ {{ "%.2f"|format(bem.valor) }}</p>
+            <p><strong>Número de Série:</strong> {{ bem.numero_serie }}</p>
+            <p><strong>Estado do Bem:</strong> {{ bem.estado }}</p>
+            
+            <!-- Exibir a imagem do bem -->
+            {% if bem.foto %}
+                <p><strong>Imagem:</strong></p>
+                <img src="{{ url_for('static', filename='uploads/' + bem.foto) }}" alt="Imagem do Bem" style="max-width: 100%; height: auto;">
+            {% else %}
+                <p>Imagem não disponível.</p>
+            {% endif %}
+        </div>
+        
+        <!-- Botões de navegação -->
+        <div class="button-container" style="text-align: center; margin-top: 20px;">
+            <button id="printDetailsButton" class="btn">Imprimir</button>
+        </div>
+    </div>
+
+     <script src="{{ url_for('static', filename='acessibilidade.js') }}"></script>
+
+     <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script>
+        document.getElementById('printDetailsButton').addEventListener('click', function() {
+            window.print(); // Chama a função de impressão do navegador
+        });
+    </script>
+</body>
+</html>

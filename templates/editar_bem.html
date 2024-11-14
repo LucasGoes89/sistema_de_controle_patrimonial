@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Bem - Controle Patrimonial APAE</title>
+    <link rel="stylesheet" href="/static/style.css"> <!-- Corrigido para garantir que o caminho está correto -->
+</head>
+<body>
+<!-- Menu de Acessibilidade -->
+<div id="accessibilityOptions" class="accessibility-options hidden">
+    <button id="toggleContrastButton" class="btn">Alto Contraste</button>
+    <button id="increaseTextSizeButton" class="btn">A+</button>
+    <button id="resetTextSizeButton" class="btn">A</button>
+    <button id="decreaseTextSizeButton" class="btn">A-</button>
+</div>
+
+<!-- Container do VLibras -->
+<div class="vlibras-container">
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+</div>
+
+    <header>
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo da APAE" class="logo"> <!-- Adicione seu logo aqui -->
+        <h1>Controle Patrimonial APAE</h1>
+        <p>Um aplicativo para gerenciar o patrimônio da APAE</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="/home">Página Principal</a></li>    
+            <li><a href="/bens">Lista Geral de Bens</a></li>
+            <li><a href="/logout">Sair</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2>Editar Bem</h2>
+        <form id="editAssetForm" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="editAssetName">Nome do Bem:</label>
+                <input type="text" id="editAssetName" name="nome" value="{{ bem.nome }}" required>
+        
+                <label for="editAssetDescription">Descrição:</label>
+                <input type="text" id="editAssetDescription" name="descricao" value="{{ bem.descricao }}" required>
+        
+                <label for="editAssetDate">Data de Aquisição:</label>
+                <input type="date" id="editAssetDate" name="data_aquisicao" value="{{ bem.data_aquisicao.strftime('%Y-%m-%d') }}" required>
+        
+                <label for="editAssetValue">Valor:</label>
+                <input type="number" id="editAssetValue" name="valor" value="{{ bem.valor }}" required>
+        
+                <label for="editAssetSerialNumber">Número de Série:</label>
+                <input type="text" id="editAssetSerialNumber" name="numero_serie" value="{{ bem.numero_serie }}">
+        
+                <label for="editAssetState">Estado do Bem:</label>
+                <select id="editAssetState" name="estado" required>
+                    <option value="Disponível" {% if bem.estado == 'Disponível' %}selected{% endif %}>Disponível</option>
+                    <option value="Baixado" {% if bem.estado == 'Baixado' %}selected{% endif %}>Baixado</option>
+                </select>
+        
+                <label for="editAssetPhoto">Foto:</label>
+                <input type="file" id="editAssetPhoto" name="foto">
+            </div>
+            <button type="submit" class="btn">Salvar Alterações</button>
+        </form>
+
+    </div>
+
+    <script src="/static/script.js"></script>
+    <script src="{{ url_for('static', filename='acessibilidade.js') }}"></script>
+
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+   <script>
+       new window.VLibras.Widget('https://vlibras.gov.br/app');
+   </script>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ titulo }} - Controle Patrimonial APAE</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+<!-- Menu de Acessibilidade -->
+<div id="accessibilityOptions" class="accessibility-options hidden">
+    <button id="toggleContrastButton" class="btn">Alto Contraste</button>
+    <button id="increaseTextSizeButton" class="btn">A+</button>
+    <button id="resetTextSizeButton" class="btn">A</button>
+    <button id="decreaseTextSizeButton" class="btn">A-</button>
+</div>
+
+<!-- Container do VLibras -->
+<div class="vlibras-container">
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+</div>
+
+    <header>
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo da APAE" class="logo"> <!-- Adicione seu logo aqui -->
+        <h1>Controle Patrimonial APAE</h1>
+        <p>Um aplicativo para gerenciar o patrimônio da APAE</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="/home">Página Principal</a></li>    
+            <li><a href="/bens">Lista Geral de Bens</a></li>
+            <li><a href="/logout">Sair</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <a href="/disponivel" class="btn">Bens Disponíveis</a>
+        <a href="/baixado" class="btn">Bens Baixados</a>
+    </div>
+
+
+    <div class="container">
+ 
+        <h2>{{ titulo }}</h2> <!-- Título atualizado -->
+        <div id="reportContainer">
+            <!-- Tabela para exibir os bens cadastrados -->
+            <table border="1" cellpadding="10" cellspacing="0" style="width: 100%; text-align: left;">
+                <thead>
+                    <tr>
+                        <th>Imagem</th>
+                        <th>Número de Série</th>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th>Valor (R$)</th>
+                        <th>Data de Aquisição</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for bem in bens %}
+                    <tr>
+                        <td>
+                            {% if bem.foto %}
+                                <img src="{{ url_for('static', filename='uploads/' + bem.foto) }}" alt="Imagem do Bem" style="max-width: 100px; height: auto;">
+                            {% else %}
+                                <span>Imagem não disponível</span>
+                            {% endif %}
+                        </td>
+                        <td>{{ loop.index }}</td> <!-- Número do bem -->
+                        <td>{{ bem.nome }}</td>
+                        <td>{{ bem.descricao }}</td>
+                        <td>{{ "%.2f"|format(bem.valor) }}</td>
+                        <td>{{ bem.data_aquisicao.strftime('%d/%m/%Y') }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="button-container" style="text-align: center; margin-top: 20px;">
+        <button id="printDetailsButton" class="btn">Imprimir</button>
+    </div>
+
+    <script>
+        document.getElementById('printDetailsButton').addEventListener('click', function() {
+            // Chama a função de impressão
+            window.print();
+        });
+    </script>
+    <script src="{{ url_for('static', filename='acessibilidade.js') }}"></script>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+    <script>
+        $(document).ready(function() {
+            // Show flash message if it exists
+            if ($('#flash-message').length) {
+                $('#flash-message').show();
+
+                // Close the modal when the user clicks on <span> (x)
+                $('.close').on('click', function() {
+                    $('#flash-message').hide();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

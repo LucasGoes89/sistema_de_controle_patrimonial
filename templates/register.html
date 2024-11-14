@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Novo Usuário - Controle Patrimonial APAE</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+<!-- Menu de Acessibilidade -->
+<div id="accessibilityOptions" class="accessibility-options hidden">
+    <button id="toggleContrastButton" class="btn">Alto Contraste</button>
+    <button id="increaseTextSizeButton" class="btn">A+</button>
+    <button id="resetTextSizeButton" class="btn">A</button>
+    <button id="decreaseTextSizeButton" class="btn">A-</button>
+    <div class="vlibras-container">
+        <div vw class="enabled">
+            <div vw-access-button class="active"></div>
+            <div vw-plugin-wrapper>
+                <div class="vw-plugin-top-wrapper"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        <h2>Registrar Novo Usuário - Controle Patrimonial APAE</h2>
+       <form action="/register" method="post">
+        <label for="username">Nome de Usuário:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="fullname">Nome Completo:</label>
+            <input type="text" id="fullname" name="fullname" required>
+            <label for="cpf">Número do CPF:</label>
+            <input type="text" id="cpf" name="cpf" required>
+            <label for="password">Senha (8-12 caracteres, letra, número e símbolo):</label>
+            <input type="password" id="password" name="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,12}$" required>
+            <input type="submit" value="Registrar">
+        </form>
+        <a href="login" class="btn">Retornar para Login</a>
+        <script src="{{ url_for('static', filename='acessibilidade.js') }}"></script>
+
+        <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+       <script>
+           new window.VLibras.Widget('https://vlibras.gov.br/app');
+       </script>
+
+</body>
+</html>

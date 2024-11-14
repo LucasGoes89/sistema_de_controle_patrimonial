@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Transferência de Bem</title>
+    <link rel="stylesheet" href="static/style.css">
+
+</head>
+<body>
+<!-- Menu de Acessibilidade -->
+<div id="accessibilityOptions" class="accessibility-options hidden">
+    <button id="toggleContrastButton" class="btn">Alto Contraste</button>
+    <button id="increaseTextSizeButton" class="btn">A+</button>
+    <button id="resetTextSizeButton" class="btn">A</button>
+    <button id="decreaseTextSizeButton" class="btn">A-</button>
+    <div class="vlibras-container">
+        <div vw class="enabled">
+            <div vw-access-button class="active"></div>
+            <div vw-plugin-wrapper>
+                <div class="vw-plugin-top-wrapper"></div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="container">
+        <h2>Registrar Transferência de Bem</h2>
+        <form action="/registrar-transferencia" method="post">
+            <label for="bem">Bem:</label>
+            <select id="bem" name="bem" required>
+                <!-- Opções de seleção dos bens disponíveis -->
+            </select>
+            <label for="data">Data:</label>
+            <input type="date" id="data" name="data" required>
+            <label for="destino">Destino:</label>
+            <input type="text" id="destino" name="destino" required>
+            <label for="motivo">Motivo:</label>
+            <textarea id="motivo" name="motivo" rows="4" required></textarea>
+            <input type="submit" value="Registrar Transferência">
+        </form>
+        <a href="/bens" class="btn">Lista de Bens</a>
+        <a href="/home" class="btn">Página Principal</a>
+        <a href="/controle_movimentacoes" class="btn">Voltar</a>
+    </div>
+    <script src="{{ url_for('static', filename='acessibilidade.js') }}"></script>
+
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+   <script>
+       new window.VLibras.Widget('https://vlibras.gov.br/app');
+   </script>
+
+</body>
+</html>

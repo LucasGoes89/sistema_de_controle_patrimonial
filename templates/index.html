@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial - Controle Patrimonial APAE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Inclusão do Chart.js -->
+
+</head>
+<body>
+<!-- Menu de Acessibilidade -->
+<div id="accessibilityOptions" class="accessibility-options hidden">
+    <button id="toggleContrastButton" class="btn">Alto Contraste</button>
+    <button id="increaseTextSizeButton" class="btn">A+</button>
+    <button id="resetTextSizeButton" class="btn">A</button>
+    <button id="decreaseTextSizeButton" class="btn">A-</button>
+    <div class="vlibras-container">
+        <div vw class="enabled">
+            <div vw-access-button class="active"></div>
+            <div vw-plugin-wrapper>
+                <div class="vw-plugin-top-wrapper"></div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+<header>
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo da APAE" class="logo"> <!-- Adicione seu logo aqui -->
+    <h1>Controle Patrimonial APAE</h1>
+    <p>Um aplicativo para gerenciar o patrimônio da APAE</p>
+</header>
+<nav>
+    <ul>
+        <li><a href="/home">Página Principal</a></li>    
+        <li><a href="/cadastrar_bens">Cadastro de Bens</a></li>
+       <!--  <li><a href="/controle_movimentacoes">Controle de Movimentações</a></li> -->
+        <li><a href="/bens">Lista Geral de Bens</a></li>
+        <li><a href="/relatorios">Relatórios</a></li>
+        <li><a href="/logout">Sair</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <h2>Dashboard</h2>
+    <canvas id="bensChart"></canvas> <!-- Elemento onde o gráfico será renderizado -->
+</div>
+
+<script src="{{ url_for('static', filename='acessibilidade.js') }}"></script>
+
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
+<script>
+    // Garante que o script será executado após o carregamento completo do DOM
+    document.addEventListener("DOMContentLoaded", function () {
+        const ctx = document.getElementById('bensChart').getContext('2d');
+        const bensChart = new Chart(ctx, {
+            type: 'bar', // Tipo de gráfico
+            data: {
+                labels: ['Total de Bens', 'Disponíveis', 'Baixados'], // Rótulos do eixo X
+                datasets: [{
+                    label: 'Quantidade de Bens',
+                    data: [{{ total_bens }}, {{ disponiveis }}, {{ baixados }}], // Dados do gráfico
+                    backgroundColor: ['#3498db', '#2ecc71', '#e74c3c'], // Cores das barras
+                    borderColor: ['#2980b9', '#27ae60', '#c0392b'], // Cores das bordas
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true, // Adapta ao tamanho da tela
+                plugins: {
+                    legend: {
+                        position: 'top', // Posição da legenda
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true // Início do eixo Y em 0
+                    }
+                }
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

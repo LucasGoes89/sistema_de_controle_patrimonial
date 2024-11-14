@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Bens - Controle Patrimonial APAE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Menu de Acessibilidade -->
+    <div id="accessibilityOptions" class="accessibility-options hidden">
+        <button id="toggleContrastButton" class="btn">Alto Contraste</button>
+        <button id="increaseTextSizeButton" class="btn">A+</button>
+        <button id="resetTextSizeButton" class="btn">A</button>
+        <button id="decreaseTextSizeButton" class="btn">A-</button>
+    </div>
+
+    <!-- Container do VLibras -->
+    <div class="vlibras-container">
+        <div vw class="enabled">
+            <div vw-access-button class="active"></div>
+            <div vw-plugin-wrapper>
+                <div class="vw-plugin-top-wrapper"></div>
+            </div>
+        </div>
+    </div>
+
+        <header>
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo da APAE" class="logo"> <!-- Adicione seu logo aqui -->
+            <h1>Controle Patrimonial APAE</h1>
+            <p>Um aplicativo para gerenciar o patrimônio da APAE</p>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="/home">Página Principal</a></li>
+                <li><a href="/bens">Lista Geral de Bens</a></li> 
+                <li><a href="/relatorios" >Relatórios de Bens</a></li>
+                <li><a href="/logout">Sair</a></li>
+            </ul>
+        </nav>
+
+    <h1>Movimentações do Bem: {{ bem.nome }}{{ bem.numero_serie }}</h1>
+            
+    <table border="1" cellpadding="10" cellspacing="0" style="width: 100%; text-align: left;">
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Tipo</th>
+                <th>Descrição</th>
+                <th>Responsável</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for movimentacao in bem.movimentacoes %}
+            <tr>
+                <td>{{ movimentacao.data.strftime('%d/%m/%Y %H:%M') }}</td>
+                <td>{{ movimentacao.tipo }}</td>
+                <td>{{ movimentacao.descricao }}</td>
+                <td>{{ movimentacao.destino }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="button-container" style="text-align: center; margin-top: 20px;">
+        <button id="printDetailsButton" class="btn">Imprimir</button>
+    </div>
+
+<script src="{{ url_for('static', filename='acessibilidade.js') }}"></script>
+
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>
+   new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+<script>
+    document.getElementById('printDetailsButton').addEventListener('click', function() {
+        // Chama a função de impressão
+        window.print();
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        // Show flash message if it exists
+        if ($('#flash-message').length) {
+            $('#flash-message').show();
+
+            // Close the modal when the user clicks on <span> (x)
+            $('.close').on('click', function() {
+                $('#flash-message').hide();
+            });
+        }
+    });
+</script>
+</body>
+</html>

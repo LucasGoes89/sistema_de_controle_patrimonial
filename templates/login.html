@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Controle Patrimonial APAE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body>
+<!-- Menu de Acessibilidade -->
+<div id="accessibilityOptions" class="accessibility-options hidden">
+    <button id="toggleContrastButton" class="btn">Alto Contraste</button>
+    <button id="increaseTextSizeButton" class="btn">A+</button>
+    <button id="resetTextSizeButton" class="btn">A</button>
+    <button id="decreaseTextSizeButton" class="btn">A-</button>
+    <div class="vlibras-container">
+        <div vw class="enabled">
+            <div vw-access-button class="active"></div>
+            <div vw-plugin-wrapper>
+                <div class="vw-plugin-top-wrapper"></div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="container">
+        <h2>Login - Controle Patrimonial APAE</h2>
+
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div id="flash-message" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <p>{{ messages[0] }}</p>
+                    </div>
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <form action="{{ url_for('auth.login') }}" method="POST">
+            <label for="username">Nome de Usuário:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required>
+            <input type="submit" value="Login">
+        </form>
+<!--
+       <div class="forgot-password">
+            <a href="forgot-password">Esqueci a senha</a>
+        </div>-->
+        <div class="register">
+            <a href="/auth/register"> Registrar novo usuário</a>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='acessibilidade.js') }}"></script>
+
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+   <script>
+       new window.VLibras.Widget('https://vlibras.gov.br/app');
+   </script>
+    <script>
+        $(document).ready(function() {
+            // Show flash message if it exists
+            if ($('#flash-message').length) {
+                $('#flash-message').show();
+
+                // Close the modal when the user clicks on <span> (x)
+                $('.close').on('click', function() {
+                    $('#flash-message').hide();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

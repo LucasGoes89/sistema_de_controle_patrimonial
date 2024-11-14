@@ -1,0 +1,54 @@
+Licença GPLv3
+Versão 3 da Licença Pública Geral GNU
+Copyright (C) 2007 Free Software Foundation, Inc.
+Endereço: 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.
+Preâmbulo
+A Licença Pública Geral GNU (GPL) é uma licença de software livre que garante aos usuários a liberdade de usar, modificar e distribuir software. Ela também garante que o software permaneça livre para sempre, impedindo que qualquer pessoa o torne proprietário.
+Esta licença é baseada na filosofia do software livre. Acreditamos que os usuários de software devem ter a liberdade de executar, copiar, distribuir, modificar e estudar o software que usam. Também acreditamos que o software deve ser livre para ser redistribuído, com ou sem modificações, para que todos possam se beneficiar dele.
+Termos e Condições
+0. Definições
+"Software" refere-se a qualquer programa de computador ou trabalho de autoria que possa ser usado ou modificado com um computador.
+"Trabalho derivado" significa qualquer obra que seja baseada no Software, ou que o utilize, modifique ou incorpore de alguma forma.
+"Entidade" significa um indivíduo ou uma organização legal.
+"Distribuir" significa copiar, vender, alugar, transmitir ou de qualquer outra forma disponibilizar o Software.
+"Código-fonte" significa a forma preferencial do Software para modificá-lo. Para a maioria dos softwares, isso corresponde ao código-fonte em linguagem de programação.
+1. Cópia e Distribuição
+Você pode copiar e distribuir o Software em qualquer meio, com ou sem modificações, desde que atenda às seguintes condições:
+• Você deve incluir uma cópia desta licença com cada cópia do Software que você distribuir.
+• Você não pode impor restrições adicionais ao exercício dos direitos concedidos por esta licença.
+2. Código-fonte
+Se você distribuir uma versão modificada do Software, você também deve distribuir o código-fonte completo de todas as suas modificações. Você pode distribuir o código-fonte sob os termos desta licença ou sob qualquer outra licença compatível com a GPLv3.
+3. Proteção de Patentes
+Você não pode iniciar um processo de patente contra ninguém por fazer, usar, vender, oferecer para venda, importar ou distribuir o Software ou qualquer Trabalho Derivado, ou por qualquer processo relacionado a qualquer um desses atos.
+4. Ausência de Garantia
+O Software é licenciado "como está". Não há garantia de que o Software seja livre de erros ou que atenda às suas necessidades. Você assume o risco de usá-lo.
+5. Limitação de Responsabilidade
+Em nenhum caso, a menos que seja exigido por lei, os autores ou detentores de direitos autorais do Software serão responsáveis por quaisquer danos, diretos, indiretos, incidentais, especiais, exemplares ou consequenciais (incluindo, mas não se limitando a, aquisição de bens ou serviços substitutos; perda de uso, dados ou lucros; ou interrupção da atividade comercial) , independentemente da causa e de qualquer teoria de responsabilidade, seja em contrato, responsabilidade estrita ou delito (incluindo negligência ou de outra forma), decorrentes de qualquer forma do uso do Software, mesmo que avisados da possibilidade de tais danos.
+6. Versões Futuras
+Esta Licença GPLv3 se aplica à versão específica do Software com a qual você está lidando. Se uma versão futura da GPL for publicada, você terá a opção de estar sujeito aos termos dessa versão ou de qualquer versão posterior.
+7. Integração com Outros Softwares
+Você pode combinar o Software com outros softwares sob os termos de licença de ambos os softwares, desde que a licença resultante seja compatível com a GPLv3.
+8. Termos Adicionais
+Não é permitido adicionar termos adicionais que limitem os direitos concedidos por esta licença. Se você agregar termos adicionais, eles serão considerados nulos e sem efeito.
+9. Rescisão
+Se você violar qualquer um dos termos desta licença, seus direitos de usar o Software serão rescindidos automaticamente. No entanto, se você corrigir a violação dentro de 60 dias, seus direitos serão restaurados. Se você não corrigir a violação dentro de 60 dias, qualquer pessoa poderá rescindir seus direitos de usar o Software.
+10. Consequências da Rescisão
+Após a rescisão, você deve destruir todas as cópias do Software e de seus Trabalhos Derivados. Você também deve parar de distribuir o Software e seus Trabalhos Derivados.
+11. Exceções
+Esta licença não concede permissão para usar o nome, logotipo ou outras marcas da Free Software Foundation ou de seus colaboradores.
+12. Versão Completa
+Esta licença constitui a versão completa da Licença Pública Geral GNU v3. Se você tiver dúvidas sobre esta licença, entre em contato com a Free Software Foundation:
+Free Software Foundation, Inc.
+51 Franklin Street, Fifth Floor
+Boston, MA 02110-1301, USA
+Email: [endereço de email removido]
+Website: https://www.gnu.org/
+13. Apêndice: Como Aplicar os Termos desta Licença a Novos Softwares
+Se você desenvolver um novo software e deseja que ele seja licenciado sob a GPLv3, você pode seguir estas etapas:
+• Adicione o texto completo da GPLv3 ao seu software.
+• Inclua um aviso de copyright no seu software, informando o ano de criação e o nome do detentor dos direitos autorais.
+• Se você desejar, pode adicionar um aviso de patente ao seu software.
+• Se você distribuir o código-fonte do seu software, você também deve distribuir o código-fonte de todas as suas modificações.
+• Certifique-se de que todos os colaboradores do seu software estejam cientes dos termos da GPLv3.
+Ao seguir estas etapas, você garante que seu software seja licenciado sob a GPLv3 e que todos os usuários do seu software tenham os direitos e liberdades garantidos por esta licença.

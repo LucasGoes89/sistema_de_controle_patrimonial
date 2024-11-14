@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Saída - Controle Patrimonial APAE</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<!-- Menu de Acessibilidade -->
+<div id="accessibilityOptions" class="accessibility-options hidden">
+    <button id="toggleContrastButton" class="btn">Alto Contraste</button>
+    <button id="increaseTextSizeButton" class="btn">A+</button>
+    <button id="resetTextSizeButton" class="btn">A</button>
+    <button id="decreaseTextSizeButton" class="btn">A-</button>
+    <div class="vlibras-container">
+        <div vw class="enabled">
+            <div vw-access-button class="active"></div>
+            <div vw-plugin-wrapper>
+                <div class="vw-plugin-top-wrapper"></div>
+            </div>
+        </div>
+    </div>
+</div>>
+    </div>
+    <div class="container">
+        <h2>Registrar Saída</h2>
+        <form action="/registrar_saida" method="post">
+            <label for="exitAssetName">Nome do Bem:</label>
+            <input type="text" id="exitAssetName" required>
+            <label for="exitDate">Data de Saída:</label>
+            <input type="date" id="exitDate" required>
+            <label for="exitReason">Motivo da Saída:</label>
+            <input type="text" id="exitReason" required>
+            <input type="submit" value="Registrar Saída">
+        </form>
+        <a href="/bens" class="btn">Lista de Bens</a>
+        <a href="/home" class="btn">Página Principal</a>
+        <a href="/controle_movimentacoes" class="btn">Voltar</a>
+    </div>
+    <script src="{{ url_for('static', filename='acessibilidade.js') }}"></script>
+
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+   <script>
+       new window.VLibras.Widget('https://vlibras.gov.br/app');
+   </script>
+
+</body>
+</html>

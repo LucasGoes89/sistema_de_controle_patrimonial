@@ -1,0 +1,380 @@
+/* style.css */
+
+/* Estilos para o corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Cor de fundo suave */
+    color: #333; /* Cor do texto */
+}
+
+/* Adicionando estilos para o tema de alto contraste */
+body.high-contrast {
+    background-color: #000; /* Fundo escuro */
+    color: #fff; /* Texto claro */
+}
+
+body.high-contrast p,
+body.high-contrast h1,
+body.high-contrast h2,
+body.high-contrast label,
+body.high-contrast span {
+    color: #ffcc00; /* Cor do texto em alto contraste */
+}
+
+body.high-contrast .btn {
+    background-color: #ffcc00; /* Cor de fundo amarelo para botões no modo alto contraste */
+    color: #000; /* Texto do botão escuro */
+    border: 2px solid #000; /* Borda preta para destacar o botão */
+}
+
+body.high-contrast .btn:hover {
+    background-color: #ffc107; /* Amarelo mais escuro ao passar o mouse */
+}
+
+body.high-contrast input[type="text"],
+body.high-contrast input[type="number"],
+body.high-contrast input[type="date"],
+body.high-contrast textarea,
+body.high-contrast input[type="submit"],
+body.high-contrast select {
+    background-color: #333; /* Fundo escuro para inputs */
+    color: #ffcc00; /* Texto claro para inputs */
+    border: 2px solid #ffcc00; /* Borda amarela para inputs */
+}
+
+body.high-contrast input[type="submit"]:hover {
+    background-color: #ffc107; /* Amarelo mais escuro ao passar o mouse no botão submit */
+}
+
+/* Estilos para tabelas no modo de alto contraste */
+body.high-contrast table,
+body.high-contrast th,
+body.high-contrast td {
+    color: #ffcc00; /* Texto das tabelas em amarelo */
+    border-color: #ffcc00; /* Borda amarela para as tabelas */
+}
+
+
+/* Estilos para a navegação */
+nav {
+    margin-top: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #333;
+    text-decoration: none;
+}
+
+/* Estilos para botões */
+.btn {
+    display: inline-block;
+    padding: 10px 20px; /* Padding padrão */
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    margin: 5px; /* Margem entre os botões */
+    min-width: 120px; /* Largura mínima para todos os botões */
+    font-size: 16px; /* Tamanho da fonte uniforme */
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para tabelas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    text-align: left;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 10px;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+img {
+    max-width: 100%; /* Imagens responsivas */
+    height: auto; /* Mantém proporção */
+    border-radius: 5px;
+}
+
+/* Estilos para o contêiner */
+.container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para formulários */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+/* Estilos para o título h1 e h2 */
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+
+/* Estilos para inputs em formulários */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="number"],
+textarea,
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para links de recuperação de senha e registro */
+.forgot-password,
+.register {
+    text-align: center;
+    font-size: 16px;
+    background-color: #0056b3;
+    padding: 10px 20px;
+}
+
+.forgot-password a,
+.register a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Estilos para a lista não ordenada (ul) */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+/* Estilos para o logout */
+.logout {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Estilos específicos para a página de detalhes do bem */
+.details-container {
+    margin-top: 20px;
+}
+
+.details-container p {
+    margin: 10px 0; /* Aumentar o espaçamento entre os detalhes */
+}
+
+/* Estilos para o botão de imprimir */
+#printDetailsButton {
+    background-color: #28a745; /* Cor verde para o botão de imprimir */
+}
+
+#printDetailsButton:hover {
+    background-color: #218838; /* Cor verde escuro ao passar o mouse */
+}
+
+@media print {
+    /* Esconde botões e links durante a impressão */
+    .btn {
+        display: none;
+    }
+}
+
+/* Tamanho do texto grande e pequeno */
+body.large-text {
+    font-size: 1.5em;
+}
+
+body.small-text {
+    font-size: 0.8em;
+}
+
+/* Contraste alto para botões */
+.high-contrast {
+    background-color: #000;
+    color: #fff;
+}
+
+.high-contrast a {
+    color: #ff0;
+}
+
+/* Sidebar de acessibilidade */
+.accessibility-sidebar {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: display 0.3s;
+}
+
+.accessibility-button {
+    margin: 5px 0;
+}
+
+/* Botão de alternar contraste */
+.contrast-ball {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(to right, white 50%, black 50%);
+    border: 2px solid #ccc;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.contrast-ball:hover {
+    background: linear-gradient(to right, #f0f0f0 50%, #333 50%);
+}
+
+/* Estilos para o modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px; /* Reduz padding em telas menores */
+    }
+
+    h1, h2 {
+        font-size: 1.5em; /* Tamanho menor para cabeçalhos */
+    }
+
+    .btn {
+        min-width: 100px; /* Largura mínima menor em telas pequenas */
+        padding: 8px 15px; /* Reduz padding dos botões */
+    }
+
+    input[type="submit"] {
+        padding: 8px 15px; /* Reduz padding do botão submit */
+    }
+}
+
+header {
+    display: flex;
+    flex-direction: column; /* Coloca os itens em coluna */
+    align-items: center; /* Centraliza horizontalmente */
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.logo {
+    height: 100px; /* Ajuste a altura do logo */
+    margin-right: 20px; /* Espaço à direita do logo */
+}
+
+h1, p {
+    margin: 0; /* Remove margens para melhor alinhamento */
+}
+
+.vlibras-container {
+    position: fixed;
+    bottom: 20px; /* Ajuste conforme necessário */
+    right: 20px; /* Ajuste conforme necessário */
+    z-index: 1000; /* Mantém o VLibras acima de outros elementos */
+    background: #007bff; /* Cor de fundo, se desejado */
+    border-radius: 5px; /* Para dar um toque visual */
+    padding: 10px; /* Para um espaçamento interno adequado */
+}
+
